@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#1a6b7c" />
+  <title>2026Australia行程信息 · 手机端 · Scarlett&amp;LiuJia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #f7f3ed;
+      --sand-deep: #ebe4d8;
+      --ocean: #1a6b7c;
+      --ocean-light: #2d8fa3;
+      --coral: #e07a5f;
+      --eucalyptus: #3d5a45;
+      --gold: #c9a227;
+      --aqua: #3ec5d3;
+      --aqua-deep: #1a9aaa;
+      --yellow: #ffd43b;
+      --yellow-deep: #f5c400;
+      --font: "Inter", -apple-system, "PingFang SC", "Helvetica Neue", sans-serif;
+      --ink: #0f172a;
+      --ink-soft: #64748b;
+      --white: #ffffff;
+      --shadow: 0 4px 24px rgba(26, 107, 124, 0.08);
+      --shadow-hover: 0 12px 40px rgba(26, 107, 124, 0.14);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      background: #fff;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Cover：全宽 Hero，与白卡片衔接 ── */
+    .cover-hero {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      min-height: clamp(420px, 58vh, 540px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .cover-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+
+    .cover-hero__shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.10) 0%,
+        rgba(15, 23, 42, 0.42) 100%
+      );
+    }
+
+    .cover-hero__body {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: clamp(48px, 8vh, 72px) 32px 56px;
+      max-width: 680px;
+    }
+
+    .cover-hero__tag {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+      margin-bottom: 14px;
+    }
+
+    .cover-hero__title {
+      font-size: clamp(44px, 8vw, 68px);
+      font-weight: 800;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin: 0;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+    }
+
+    .cover-hero__title em {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .cover-hero__meta {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .cover-hero__meta-primary {
+      font-size: clamp(17px, 2.6vw, 21px);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .cover-hero__meta-trip {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .cover-hero__meta .route-dot {
+      font-style: normal;
+      padding: 0 0.45em;
+      opacity: 0.65;
+    }
+
+    /* ── 介绍 + 景点卡片（Hero 直下白底，无包边） ── */
+    .highlights {
+      background: #fff;
+      padding: 32px 0 32px;
+      margin-bottom: 0;
+    }
+
+    .highlights__inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .highlights__intro {
+      margin-bottom: 28px;
+    }
+
+    .highlights__headline {
+      font-size: clamp(26px, 4.8vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+      color: #0f172a;
+      margin: 0 0 20px;
+      max-width: 22em;
+    }
+
+    .highlights__copy {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 32px;
+      align-items: start;
+    }
+
+    .highlights__lead,
+    .highlights__note {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.7;
+      color: #334155;
+      margin: 0;
+    }
+
+    .highlights__note {
+      padding-left: 16px;
+      border-left: 2px solid #e2e8f0;
+    }
+
+    @media (max-width: 640px) {
+      .highlights__copy { grid-template-columns: 1fr; }
+      .highlights__note {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 4px;
+        border-top: 1px solid #f1f5f9;
+      }
+    }
+
+    /* ── 结尾总结：沙色收束 · 与行程区衔接 ── */
+    .conclusion {
+      background: linear-gradient(180deg, #f3efe8 0%, #faf8f5 40%, #fff 100%);
+      padding: 48px 0 64px;
+      margin-bottom: 0;
+      border-top: 1px solid #ebe4d8;
+    }
+
+    .conclusion__inner {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .conclusion__kicker {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #c9a227;
+      margin: 0 0 16px;
+    }
+
+    .conclusion__headline {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+      color: #0f172a;
+      margin: 0 0 20px;
+    }
+
+    .conclusion__body {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.75;
+      color: #475569;
+      margin: 0 0 16px;
+    }
+
+    .conclusion__body:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    .conclusion__stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .conclusion__stat {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #334155;
+      padding: 8px 14px;
+      background: #fff;
+      border: 1px solid #ebe4d8;
+      border-radius: 999px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+    }
+
+    .conclusion__signoff {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: #94a3b8;
+      margin: 0;
+    }
+
+    .highlights__scroll {
+      position: relative;
+      margin: 0 -4px;
+      padding: 12px 0 8px;
+    }
+
+    .highlights__route-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 80px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+
+    .highlights__cards {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 8px;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .highlights__cards::-webkit-scrollbar { height: 6px; }
+    .highlights__cards::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+
+    .highlights__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.92);
+      color: #64748b;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
+      transition: background 0.15s, color 0.15s, opacity 0.15s;
+    }
+
+    .highlights__arrow--prev { left: 4px; }
+    .highlights__arrow--next { right: 4px; }
+
+    .highlights__arrow:hover:not(:disabled) {
+      background: #fff;
+      color: #334155;
+    }
+
+    .highlights__arrow:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spot-card {
+      flex: 0 0 clamp(160px, 22vw, 190px);
+      height: 220px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      scroll-snap-align: start;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+    }
+
+    .spot-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .spot-card__shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.55) 0%,
+        rgba(15, 23, 42, 0.08) 42%,
+        rgba(15, 23, 42, 0.62) 100%
+      );
+    }
+
+    .spot-card__label {
+      position: absolute;
+      top: 18px;
+      left: 16px;
+      right: 16px;
+      color: #fff;
+      z-index: 1;
+    }
+
+    .spot-card__name {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .spot-card__sub {
+      display: block;
+      margin-top: 3px;
+      font-size: 11px;
+      font-weight: 500;
+      opacity: 0.9;
+    }
+
+    .spot-card__date {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      z-index: 1;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    @media (max-width: 820px) {
+      .cover-hero { min-height: 380px; }
+      .cover-hero__body { padding: 44px 20px 48px; }
+      .highlights { padding: 24px 0 24px; }
+      .highlights__inner { padding: 0 16px; }
+      .conclusion { padding: 36px 0 48px; }
+      .conclusion__inner { padding: 0 16px; }
+      .conclusion__stat { font-size: 11px; padding: 7px 12px; }
+      .spot-card { height: 200px; flex: 0 0 150px; }
+      .highlights__route-line { display: none; }
+    }
+
+    /* ── Itinerary：杂志风 · 拍立得 + 时间轴（参考案例） ── */
+    .itinerary-panel {
+      position: relative;
+      background: linear-gradient(180deg, #f7f3ed 0%, #faf8f5 48%, #f3efe8 100%);
+      padding: 0 0 64px;
+      overflow: hidden;
+    }
+
+    .itinerary-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 10%, rgba(201, 162, 39, 0.06) 0%, transparent 42%),
+        radial-gradient(circle at 85% 60%, rgba(26, 107, 124, 0.05) 0%, transparent 38%);
+      pointer-events: none;
+    }
+
+    .itinerary-panel__inner {
+      position: relative;
+      z-index: 1;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .itinerary-panel__label {
+      padding-top: 40px;
+      margin-bottom: 28px;
+      font-size: clamp(30px, 5vw, 42px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: #0f172a;
+    }
+
+    .itinerary-panel__label::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 3px;
+      margin-top: 14px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #c9a227, rgba(201, 162, 39, 0.2));
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media print {
+      @page { size: A4 landscape; margin: 10mm; }
+      body { background: white; }
+      body::before { display: none; }
+      .map-route { opacity: 0.07; }
+      .map-aus { opacity: 0.08; }
+      .cover-hero { break-after: avoid; min-height: 220px; }
+      .cover-hero__img { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .highlights { break-inside: avoid; }
+      .itinerary-panel { break-inside: avoid; background: #fff; }
+      .itinerary-panel::before { display: none; }
+      .section { box-shadow: none; border: 1px solid #e2e8f0; }
+      .highlights__cards { overflow: visible; flex-wrap: wrap; }
+      .spot-card { flex: 0 0 180px; height: 220px; }
+      .day-card { break-inside: avoid; }
+      .day-polaroid { transform: none !important; }
+      .columns {
+        grid-template-columns: 1fr 1fr;
+        max-width: none;
+        gap: 12px;
+      }
+    }
+
+    /* ── 城市段：白卡片 ── */
+    .section {
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px 28px 8px;
+      box-shadow: 0 12px 48px rgba(15, 23, 42, 0.08);
+    }
+
+    .section + .section { margin-top: 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: 8px 20px;
+      align-items: baseline;
+      margin-bottom: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3.8vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: #0f172a;
+    }
+
+    .section-dates {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c9a227;
+      white-space: nowrap;
+    }
+
+    .section-intro {
+      grid-column: 1 / -1;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.7;
+      color: #64748b;
+      max-width: 36em;
+    }
+
+    .section-hotel {
+      margin: 0 0 12px;
+      padding: 12px 16px;
+      border-left: 3px solid #c9a227;
+      background: #faf8f5;
+      border-radius: 0 12px 12px 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.65;
+      color: #64748b;
+    }
+
+    .hotel-chip {
+      display: inline;
+      padding: 0;
+      border: none;
+      background: none;
+      font-size: inherit;
+      font-weight: inherit;
+      color: inherit;
+    }
+
+    .hotel-chip strong {
+      color: #334155;
+      font-weight: 700;
+    }
+
+    /* ── 每日：左拍立得 · 右时间轴 ── */
+    .days {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 188px 1fr;
+      grid-template-rows: 1fr;
+      gap: 0 36px;
+      align-items: stretch;
+      padding: 18px 0 18px;
+      border-bottom: 1px solid #ebe4d8;
+    }
+
+    .day-card:last-child { border-bottom: none; }
+
+    .day-card__date {
+      position: absolute;
+      top: 18px;
+      left: 0;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1px;
+      line-height: 1.1;
+    }
+
+    .day-card__week {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #0f172a;
+    }
+
+    .day-card__month {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+    }
+
+    .day-card__day {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      line-height: 1;
+    }
+
+    .day-card__aside {
+      grid-column: 1;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      align-self: stretch;
+      min-height: 100%;
+      width: 100%;
+      max-width: 188px;
+    }
+
+    /* 拍立得 · 左栏垂直居中 */
+    .day-visual {
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .day-polaroid {
+      position: relative;
+      width: 100%;
+    }
+
+    .day-polaroid--tilt-l { transform: rotate(-2.5deg); }
+    .day-polaroid--tilt-r { transform: rotate(1.8deg); }
+
+    .day-polaroid__tape {
+      position: absolute;
+      width: 52px;
+      height: 16px;
+      background: rgba(235, 228, 216, 0.92);
+      z-index: 3;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08);
+    }
+
+    .day-polaroid__tape--l {
+      top: 8px;
+      left: 12px;
+      transform: rotate(-28deg);
+    }
+
+    .day-polaroid__tape--r {
+      top: 6px;
+      right: 10px;
+      transform: rotate(22deg);
+    }
+
+    .day-polaroid__frame {
+      position: relative;
+      margin: 0;
+      padding: 10px 10px 36px;
+      background: #fff;
+      box-shadow: 0 10px 36px rgba(15, 23, 42, 0.14);
+    }
+
+    .day-polaroid__img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+
+    .day-polaroid__overlay {
+      position: absolute;
+      inset: 10px 10px auto;
+      height: calc(100% - 46px);
+      margin: 0;
+      pointer-events: none;
+      container-type: inline-size;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.28) 0%,
+        rgba(15, 23, 42, 0.18) 45%,
+        rgba(15, 23, 42, 0.38) 100%
+      );
+    }
+
+    .day-polaroid__badge {
+      position: absolute;
+      right: 2px;
+      bottom: 2px;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      width: clamp(42px, 27.4cqw, 46px);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .day-polaroid__badge-label {
+      font-size: clamp(11px, 7.1cqw, 12px);
+      font-weight: 900;
+      letter-spacing: 0.34em;
+      text-indent: 0.34em;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 1px;
+    }
+
+    .day-polaroid__badge-num {
+      font-size: clamp(29px, 19.6cqw, 33px);
+      font-weight: 900;
+      font-variant-numeric: tabular-nums lining-nums;
+      font-feature-settings: "tnum" 1, "lnum" 1;
+      letter-spacing: 0.06em;
+      text-align: center;
+      color: #fff;
+      line-height: 0.76;
+      transform: scaleY(0.9);
+      transform-origin: center bottom;
+    }
+
+    .day-card__tags {
+      flex-shrink: 0;
+      z-index: 3;
+      margin-left: 6px;
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      max-width: calc(188px - 12px);
+    }
+
+    .day-polaroid__caption {
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      margin: 0;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      line-height: 1.35;
+      color: #334155;
+      text-align: center;
+    }
+
+    .tag {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #475569;
+      padding: 3px 8px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      line-height: 1.3;
+    }
+
+    .tag-booked { color: #3d5a45; border-color: rgba(61, 90, 69, 0.2); }
+    .tag-pending { color: #64748b; }
+
+    .day-main {
+      --tl-label: 76px;
+      --tl-rail: 28px;
+      --tl-dot: 9px;
+      --tl-label-size: 11px;
+      --slot-text-size: 15px;
+      --slot-text-lh: 1.5;
+      grid-column: 2;
+      grid-row: 1;
+      min-width: 0;
+      align-self: start;
+      position: relative;
+      padding: 0;
+    }
+
+    .day-main::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--tl-label) + var(--tl-rail) / 2 - 1px);
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: #d4c4a8;
+      z-index: 0;
+    }
+
+    /* 三大块：统一三栏 grid · 同字号 · 同间距 */
+    .day-block {
+      position: relative;
+      z-index: 1;
+    }
+
+    .day-block + .day-block {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .day-block--transport,
+    .day-block--notes {
+      display: grid;
+      grid-template-columns: var(--tl-label) var(--tl-rail) 1fr;
+      align-items: center;
+      padding-bottom: 0;
+    }
+
+    .day-block__label,
+    .slot__label {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      box-sizing: border-box;
+      padding-right: 10px;
+      font-size: var(--tl-label-size);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: #94a3b8;
+      line-height: 1;
+      margin: 0;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      align-self: center;
+    }
+
+    .day-block--transport::before,
+    .day-block--notes::before {
+      content: "";
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: center;
+      align-self: center;
+      margin-top: 0;
+      width: var(--tl-dot);
+      height: var(--tl-dot);
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #cbd5e1;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 2px #fff;
+    }
+
+    .day-block__body {
+      grid-column: 3;
+      grid-row: 1;
+      margin: 0;
+      min-width: 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #475569;
+    }
+
+    .day-line {
+      display: block;
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #475569;
+    }
+
+    .day-line + .day-line {
+      margin-top: 6px;
+    }
+
+    .day-line b { font-weight: 700; color: #334155; }
+
+    .slot__text {
+      grid-column: 3;
+      grid-row: 1;
+      margin: 0;
+      min-width: 0;
+      align-self: center;
+    }
+
+    .slot__line {
+      display: block;
+      margin: 0;
+      font-size: var(--slot-text-size);
+      font-weight: 500;
+      line-height: var(--slot-text-lh);
+      color: #0f172a;
+    }
+
+    .slot__line + .slot__line {
+      margin-top: 6px;
+    }
+
+    .day-block__body b { font-weight: 700; color: #334155; }
+    .slot__line b { font-weight: 700; color: #0f172a; }
+
+    .day-timeline {
+      position: relative;
+      z-index: 1;
+    }
+
+    .day-timeline--primary::before { display: none; }
+
+    .slot {
+      display: grid;
+      grid-template-columns: var(--tl-label) var(--tl-rail) 1fr;
+      grid-template-rows: auto;
+      align-items: center;
+      padding: 5px 0;
+    }
+
+    .slot:first-child { padding-top: 0; }
+    .slot:last-child { padding-bottom: 0; }
+
+    .slot::before {
+      content: "";
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: center;
+      align-self: center;
+      margin: 0;
+      width: var(--tl-dot);
+      height: var(--tl-dot);
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid #c9a227;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 2px #fff;
+    }
+
+    .day-extra {
+      display: block;
+      margin-top: 6px;
+    }
+
+    .day-extra:first-child { margin-top: 0; }
+
+    .day-extra__label {
+      display: inline;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-right: 6px;
+    }
+
+    .day-extra__body {
+      display: inline;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.5;
+      color: #334155;
+    }
+
+    .day-extra__body b { font-weight: 700; color: #0f172a; }
+
+    .planb {
+      display: block;
+      margin-top: 8px;
+      padding: 0 0 0 12px;
+      border-left: 2px solid #ebe4d8;
+      font-size: 13px;
+      line-height: 1.68;
+      color: #64748b;
+    }
+
+    .planb b { font-weight: 600; color: #94a3b8; }
+
+    @media (max-width: 720px) {
+      .itinerary-panel__inner { padding: 0 16px; }
+      .section { padding: 20px 18px 4px; border-radius: 20px; }
+      .section-head { grid-template-columns: 1fr; }
+      .day-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 14px;
+        padding: 20px 0 18px;
+        align-items: stretch;
+      }
+      .day-card__date { top: 14px; }
+      .day-card__day { font-size: 24px; }
+      .day-card__week { font-size: 9px; }
+      .day-card__month { font-size: 10px; }
+      .day-card__aside { grid-column: 1; grid-row: 1; max-width: 160px; margin: 0 auto; }
+      .day-main { grid-column: 1; grid-row: 2; }
+      .day-card__tags { margin-left: 4px; max-width: calc(100% - 8px); }
+      .day-visual {
+        max-width: 160px;
+        margin: 0 auto;
+        align-self: start;
+      }
+      .day-main { align-self: start; }
+      .day-polaroid { max-width: 160px; }
+      .day-polaroid--tilt-l,
+      .day-polaroid--tilt-r { transform: rotate(-1deg); }
+      .day-main { --tl-label: 58px; --tl-rail: 22px; }
+      .day-block__label,
+      .slot__label { font-size: 10px; }
+      .day-block__body,
+      .slot__line,
+      .day-extra__body { font-size: 14px; }
+    }
+
+    .version-switch {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      padding-top: max(10px, env(safe-area-inset-top));
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 12px;
+    }
+
+    .version-switch__current,
+    .version-switch a {
+      padding: 8px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .version-switch__current {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .version-switch a {
+      color: #64748b;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+    }
+
+    /* H5 手机端默认布局强化 */
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body.is-h5 {
+      overflow-x: hidden;
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    body.is-h5 .cover-hero {
+      min-height: 68vh;
+      min-height: 68dvh;
+    }
+
+    body.is-h5 .cover-hero__title { font-size: clamp(36px, 10vw, 52px); }
+
+    body.is-h5 .highlights__headline { font-size: clamp(22px, 6vw, 28px); }
+
+    body.is-h5 .itinerary-panel__inner { padding: 0 14px; }
+
+    body.is-h5 .section { padding: 18px 16px 4px; border-radius: 18px; }
+
+    body.is-h5 .day-card {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      gap: 14px;
+      padding: 18px 0 16px;
+    }
+
+    body.is-h5 .day-card__aside {
+      grid-column: 1;
+      grid-row: 1;
+      max-width: min(200px, 72vw);
+      margin: 0 auto;
+    }
+
+    body.is-h5 .day-visual,
+    body.is-h5 .day-polaroid { max-width: min(200px, 72vw); }
+
+    body.is-h5 .day-main {
+      grid-column: 1;
+      grid-row: 2;
+      --tl-label: 54px;
+      --tl-rail: 20px;
+    }
+
+    body.is-h5 .slot__line,
+    body.is-h5 .day-block__body,
+    body.is-h5 .day-extra__body { font-size: 15px; line-height: 1.55; }
+
+    body.is-h5 .highlights__arrow {
+      width: 44px;
+      height: 44px;
+      font-size: 22px;
+    }
+
+    body.is-h5 .spot-card { flex: 0 0 min(168px, 44vw); height: 210px; }
+
+    body.is-h5 .conclusion__body { font-size: 16px; }
+
+    body.is-h5 .conclusion__headline { font-size: clamp(20px, 5.5vw, 26px); }
+  </style>
+</head>
+<body class="is-h5">
+
+  <nav class="version-switch" aria-label="版本切换">
+    <a href="index.html">Web 端</a>
+    <span class="version-switch__current">手机端</span>
+  </nav>
+
+  <section class="cover-hero">
+    <img class="cover-hero__img" src="images/harbour-bridge.jpg" alt="Sydney Harbour" />
+    <div class="cover-hero__shade" aria-hidden="true"></div>
+    <div class="cover-hero__body">
+      <p class="cover-hero__tag">2026 <i class="route-dot">·</i> Australia</p>
+      <h1 class="cover-hero__title">Melbourne <em>&amp;</em> Sydney</h1>
+      <div class="cover-hero__meta">
+        <p class="cover-hero__meta-primary">Scarlett&amp;LiuJia <i class="route-dot">·</i> 9/25 – 10/6</p>
+        <div class="cover-hero__meta-trip">
+          <p>Shanghai ⇄ Melbourne <i class="route-dot">·</i> Sydney</p>
+          <p>Hong Kong Airlines <i class="route-dot">·</i> via HKG</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="highlights">
+    <div class="highlights__inner">
+      <div class="highlights__intro">
+        <h2 class="highlights__headline">From laneways to harbour —<br />twelve days on the east coast.</h2>
+        <div class="highlights__copy">
+          <p class="highlights__lead">九月底南半球入春，行程从墨尔本切入，再飞悉尼。先在墨尔本五晚 — laneway、咖啡、大洋路和企鹅岛；再转悉尼，串港湾、Gerringong 南海岸和 Bondi。</p>
+          <p class="highlights__note">两城同在东海岸，节奏相反：墨尔本宜慢走看展，悉尼交给轮渡与沙滩。白天十来度到二十出头，东岸外座头鲸的尾声还赶得上。</p>
+        </div>
+      </div>
+
+      <div class="highlights__scroll">
+        <button type="button" class="highlights__arrow highlights__arrow--prev" aria-label="上一站">‹</button>
+        <button type="button" class="highlights__arrow highlights__arrow--next" aria-label="下一站">›</button>
+
+        <svg class="highlights__route-line" viewBox="0 0 1200 80" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,42 C120,18 240,58 380,36 C520,14 640,52 780,38 C920,24 1040,50 1200,40" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 7" fill="none"/>
+          <path d="M1168,34 L1188,40 L1168,46 Z" fill="#94a3b8"/>
+        </svg>
+
+        <div class="highlights__cards" id="spot-carousel">
+          <article class="spot-card">
+            <img class="spot-card__img" src="images/uni-melbourne.jpg" alt="University of Melbourne" />
+            <div class="spot-card__shade" aria-hidden="true"></div>
+            <div class="spot-card__label">
+              <span class="spot-card__name">Uni Melbourne</span>
+              <span class="spot-card__sub">Parkville · Old Quad</span>
+            </div>
+            <span class="spot-card__date">9/26</span>
+          </article>
+
+          <article class="spot-card">
+            <img class="spot-card__img" src="images/penguin-parade.jpg" alt="Phillip Island" />
+            <div class="spot-card__shade" aria-hidden="true"></div>
+            <div class="spot-card__label">
+              <span class="spot-card__name">Phillip Island</span>
+              <span class="spot-card__sub">Penguin Parade</span>
+            </div>
+            <span class="spot-card__date">9/27</span>
+          </article>
+
+          <article class="spot-card">
+            <img class="spot-card__img" src="images/twelve-apostles.jpg" alt="Great Ocean Road" />
+            <div class="spot-card__shade" aria-hidden="true"></div>
+            <div class="spot-card__label">
+              <span class="spot-card__name">Great Ocean Rd</span>
+              <span class="spot-card__sub">Twelve Apostles</span>
+            </div>
+            <span class="spot-card__date">9/28</span>
+          </article>
+
+          <article class="spot-card">
+            <img class="spot-card__img" src="images/circular-quay.jpg" alt="Circular Quay" />
+            <div class="spot-card__shade" aria-hidden="true"></div>
+            <div class="spot-card__label">
+              <span class="spot-card__name">Circular Quay</span>
+              <span class="spot-card__sub">Harbour · Opera House</span>
+            </div>
+            <span class="spot-card__date">10/1</span>
+          </article>
+
+          <article class="spot-card">
+            <img class="spot-card__img" src="images/gerringong.jpg" alt="Gerringong" />
+            <div class="spot-card__shade" aria-hidden="true"></div>
+            <div class="spot-card__label">
+              <span class="spot-card__name">Gerringong</span>
+              <span class="spot-card__sub">Seven Mile Beach</span>
+            </div>
+            <span class="spot-card__date">10/2</span>
+          </article>
+
+          <article class="spot-card">
+            <img class="spot-card__img" src="images/bondi-beach.jpg" alt="Bondi Beach" />
+            <div class="spot-card__shade" aria-hidden="true"></div>
+            <div class="spot-card__label">
+              <span class="spot-card__name">Bondi Beach</span>
+              <span class="spot-card__sub">Big Bus · Blue Line</span>
+            </div>
+            <span class="spot-card__date">10/4</span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="itinerary-panel" id="schedule">
+    <div class="itinerary-panel__inner">
+      <div class="itinerary-panel__label">Itinerary</div>
+      <div class="columns">
+
+      <!-- Melbourne -->
+      <section class="section">
+        <div class="section-head melbourne">
+          <div class="section-title">Melbourne</div>
+          <div class="section-dates">9/25 – 9/30</div>
+          <div class="section-intro">维多利亚州首府 · 咖啡、艺术与慢生活</div>
+        </div>
+        <div class="section-hotel">
+          <span class="hotel-chip"><strong>Brady Hotels Hardware Lane</strong> · 9/26–10/1</span>
+        </div>
+        <div class="days">
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周五</span><span class="day-card__month">Sep</span><span class="day-card__day">25</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-l">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-25-disneyland.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">01</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">港迪打卡 · 晚班飞墨尔本</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">机票 ✅</span><span class="tag tag-booked">港迪年卡 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">抵港 T1 · 入境</span><span class="slot__line">港迪年卡入园打卡</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">回市区溜达</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">前往 T2 · <b>22:55</b> 飞墨尔本</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">大：✅ <b>HX231</b> 浦东 07:35 → 香港 10:20</div><div class="day-line">大：✅ <b>HX035</b> 香港 22:55 → 墨尔本 10:30+1</div><div class="day-line">小：机场快线 / 地铁 ↔ 港迪 / 市区</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body">                  <div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">年卡熟路，机动安排</div></div>
+                  <div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">港迪园内简餐 · 市区茶餐厅 · T2 登机前机场食肆</div></div>
+                  <div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">香港航空 · ✅ 港迪年卡</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周六</span><span class="day-card__month">Sep</span><span class="day-card__day">26</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-r">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-26-unimelb.jpg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">02</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">抵达 · 墨大 · 倒时差</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">接机 ✅</span><span class="tag tag-booked">酒店 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">~10:30 抵 T2 · ✅ 接机 11:25</span><span class="slot__line">Brady 入住放行李</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line"><b>墨尔本大学</b> Parkville</span><span class="slot__line">南门 / Old Quad / 校园漫步</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">倒时差 · 早休息</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">大：续前日 HX035 落地</div><div class="day-line">小：✅ 接机 T2 → Brady · ⬜ 19 路电车 / 步行 → Parkville（~15min）</div><div class="day-line">小：CBD 免费电车圈 · 墨大 ↔ 酒店</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body">                  <div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">落地日不宜排满；墨大顺路且强度低<div class="planb"><b>PlanB</b> 大雨 → Old Quad / 图书馆外观 · 提早回酒店休息</div></div></div>
+                  <div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">Degraves St / Hardware Lane 咖啡馆早午餐（Patricia / Degraves Espresso）· 超市采购，准备当晚的晚餐和后几天的水、早餐</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周日</span><span class="day-card__month">Sep</span><span class="day-card__day">27</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-l">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-27-puffing-billy.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">03</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">蒸汽火车 + 企鹅归巢</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">一日游跟团 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">奔驰小团上门接 Brady 酒店（具体时间以出行通知为准）</span><span class="slot__line">普芬比利 Puffing Billy 蒸汽火车 · Belgrave 站 → 经典 timber 段</span><span class="slot__line">可选 Maru 考拉动物园（<b>自费可选</b>，订单不含）</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">驱车往菲利普岛 · 诺比斯角 The Nobbies 海岸（视团期）</span><span class="slot__line">企鹅归巢 Penguin Parade · 小企鹅 dusk 上岸（户外风大，带外套）</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">~23:00 墨尔本市政厅 Swanston St 解散</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">✅ 整日奔驰小团 · 上门接 → 跟车往返</div><div class="day-line">解散后回酒店：市政厅 → Brady Hardware Lane 约 <b>800m · 步行 10min</b>（Collins / Swanston 方向）</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body">                  <div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">整日跟车；企鹅段日落前后最冷，带防风外套 · 解散后步行回酒店</div></div>
+                  <div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">早餐酒店房间解决 · Maru 段或途中小镇自理 · 菲利普岛 Cowes 简易晚餐 · 23:00 回 CBD 后便利店 / 提前备点零食</div></div>
+                  <div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ 已订 · 2 成人 · ⚠️ 司机小费 5 AUD/人</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周一</span><span class="day-card__month">Sep</span><span class="day-card__day">28</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-r">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-28-twelve-apostles.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">04</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">大洋路 · 十二门徒</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">一日游跟团 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">奔驰精品小团上门接 Brady 酒店 · 接客 <b>08:00–09:00</b>（以出行通知为准）</span><span class="slot__line">大洋路<b>反线</b>出发 · 纪念拱门 Memorial Arch</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">阿波罗贝 Apollo Bay 小镇 · 午餐（通常自理）</span><span class="slot__line">洛克阿德峡谷 Loch Ard Gorge · 吉布森台阶 Gibson Steps</span><span class="slot__line"><b>十二门徒</b> Twelve Apostles · 可选大洋路野生动物园（<b>自费可选</b>，订单不含门票）</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">~20:00 墨尔本市政厅 Swanston St 解散</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">✅ 整日奔驰精品小团 · 上门接 → 跟车往返</div><div class="day-line">解散后回酒店：市政厅 → Brady Hardware Lane 约 <b>800m · 步行 10min</b>；或免费电车 / 打车</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body">                  <div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">跟已订团走；反线先远后近，十二门徒段留足拍照时间 · 次日无早团，20:00 解散后可正常晚餐<div class="planb"><b>PlanB</b> 大雨/取消 → 改期或 9/29 室内</div></div></div>
+                  <div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">出发前 Hardware Lane 买咖啡 + 可颂 · 阿波罗贝 Apollo Bay 炸鱼薯条 / 海鲜（午餐自理）· 回城后 CBD 正餐或亚洲简餐</div></div>
+                  <div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ 已订 · 2 成人</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周二</span><span class="day-card__month">Sep</span><span class="day-card__day">29</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-l">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-29-citywalk.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">05</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">Citywalk + QVM</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-pending">自由活动</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Queen Victoria Market（周二开放）</span><span class="slot__line">生鲜 / 熟食 / 纪念品</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">联邦广场 → Flinders 街站 → Hosier Lane 涂鸦</span><span class="slot__line">州立图书馆 → NGV 国际馆</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">南岸 Southbank 河滨步道 · 整理行李 · 早睡</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">⬜ 步行 + 免费电车（City Circle / 35 路）· QVM ↔ CBD ↔ 南岸均可电车/步行</div><div class="day-line">全程 CBD 圈内，无需租车</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body">                  <div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">两日游后缓冲日；QVM 适合上午去，下午纯步行串联 · 图书馆/NGV 雨天友好<div class="planb"><b>PlanB</b> 雨天 → 改 Royal Arcade + Block Arcade + NGV 室内</div></div></div>
+                  <div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">QVM：澳式 doughnut / 热 donut / 咖啡 · 顺路采购水果奶酪当后续几天储备 · 午餐 Chin Chin / Hochi Mama（CBD）· 晚餐酒店内准备</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周三</span><span class="day-card__month">Sep</span><span class="day-card__day">30</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-r">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-30-winery.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">06</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">Yarra Valley 酒庄</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">酒庄一日游 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">✅ 雅拉谷酒庄导览 · <b>09:30</b> 上车 <b>210 Lonsdale St</b>（Brady 步行 ~5min）</span><span class="slot__line">Steels Gate → Balgownie 品酒 · 含午餐（1 道菜 + 酒）</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">Yering Farm · Soumah 等 4 家酒庄品酒</span><span class="slot__line">约 16:30–17:00 回 CBD</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">回 Brady 整理 · 为 10/1 飞悉尼早休息</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">✅ 携程含 CBD 往返（单程 ~1h）</div><div class="day-line">小：210 Lonsdale St 集合 · 前晚出团通知为准 · 提前 15min 到</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body">                  <div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">品酒适度、吐酒桶可用 · 带护照/ID（18+）· 春末葡萄园新绿，拍照好看</div></div>
+                  <div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">早餐简单解决 · 午餐团含 · 晚餐酒店内准备</div></div>
+                  <div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ 已订 · 2 成人</div></div></div>
+              </section>
+            </div></article>
+
+        </div>
+      </section>
+
+      <!-- Sydney -->
+      <section class="section">
+        <div class="section-head sydney">
+          <div class="section-title">Sydney</div>
+          <div class="section-dates">10/1 – 10/6</div>
+          <div class="section-intro">新南威尔士州首府 · 海港、沙滩与天际线</div>
+        </div>
+        <div class="section-hotel">
+          <span class="hotel-chip"><strong>Mercure Sydney</strong> · 10/1–10/3 ✅ · <strong>Caption By Hyatt</strong> · 10/3–10/6</span>
+        </div>
+        <div class="days">
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周四</span><span class="day-card__month">Oct</span><span class="day-card__day">1</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-l">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-01-sydney-opera.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">07</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">飞悉尼 · 夜游海港</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">JQ512 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Brady 退房 · <b>~09:15 前</b> 出发去 MEL T4</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">✅ <b>JQ512</b> Jetstar · MEL T4 <b>12:20</b> → SYD T2 <b>13:45</b></span><span class="slot__line">抵 SYD 后入住 <b>Mercure Sydney</b>（Central 旁 · 15:00 后）</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">火车至 Circular Quay · The Rocks · 歌剧院 / 海港大桥夜景</span><span class="slot__line">早回酒店休息</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">大：✅ <b>JQ512</b> Jetstar · MEL T4 → SYD T2 国内线（1h25m · A320）</div><div class="day-line">小：Brady → MEL T4 打车 / SkyBus · 悉尼 T8 国内线 T2 → Central · 办 Opal 卡</div><div class="day-line">小：Mercure ↔ Circular Quay 火车 ~10 min</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body"><div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">转场日只排海港夜景；Mercure 火车 ~10 min 到环形码头</div></div><div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">机上含餐（Basic Plus）· 晚餐 The Rocks：<b>Portside Sydney</b> 或 Circular Quay <b>Opera Bar</b> 小食 + 看夜景</div></div><div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ JQ512 Jetstar · Basic Plus · 2×20kg · ✅ Mercure · 818 George St Chippendale</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周五</span><span class="day-card__month">Oct</span><span class="day-card__day">2</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-r">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-02-gerringong.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">08</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">Kiama + Gerringong</p>
+              </div>
+            </aside><div class="day-card__tags"><span class="tag tag-pending">火车自由行</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Mercure 步行 ~3 min → <b>Central</b> 坐火车</span><span class="slot__line">South Coast Line → <b>Kiama</b>（~2h）· <b>Blowhole 喷水洞</b></span><span class="slot__line">小镇午餐</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">火车 Kiama → <b>Gerringong</b>（~10 min）· Seven Mile Beach / 主街</span><span class="slot__line">~16:00 返 Central</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">早休息</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">小：⬜ Central → Kiama → Gerringong 火车（Opal · 建议 07:30 前出发）</div><div class="day-line">小：Kiama ↔ Gerringong ~10 min · 镇内步行</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body"><div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">Mercure 离 Central 最近，适合赶早火车 · Kiama 喷水洞看潮汐与风向<div class="planb"><b>PlanB</b> 大雨 → Kiama 室内午餐 + Gerringong 主街</div></div></div><div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">早餐 Mercure / 打包 · Kiama / Gerringong 海鲜 café（<b>Hunger Monkey</b> / fish & chips）· 晚餐酒店附近简餐</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周六</span><span class="day-card__month">Oct</span><span class="day-card__day">3</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-l">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-03-kayak.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">09</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">皮划艇 · Manly · 入住凯悦</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">凯悦 ✅</span><span class="tag tag-booked">皮划艇 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Mercure 退房（<b>10:00 前</b>）· 行李寄存 / 送 Caption</span><span class="slot__line">✅ 悉尼港皮划艇 · 10/3 <b>白天场</b> · Kirribilli · 2h · 单人艇 ×2</span><span class="slot__line">集合时刻行前 SMS · 前一日 <b>12:00</b> 前确认订单</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">轮渡 → <b>Manly</b>（北岸海滩 · Corso 主街 + 沙滩）</span><span class="slot__line">✅ 入住 Caption By Hyatt</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">唐人街晚餐 · 早休息</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">小：✅ 皮划艇 Kirribilli · 集合点行前 SMS · 提前 15min · 填 waiver</div><div class="day-line">小：⬜ 轮渡 Circular Quay ↔ <b>Manly</b>（Opal ~20 min）</div><div class="day-line">小：⬜ Mercure → Caption ~10 min</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body"><div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body"><b>Manly</b>：环形码头渡轮 ~20 min 可达的北岸海滩区<div class="planb"><b>PlanB</b> 皮划艇取消 → Manly + 皇家植物园 / 大桥步行</div></div></div><div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">皮划艇后 Bird&amp;Bear 咖啡（含券）· Manly：<b>Manly Fish Market</b> / Corso 披萨 · 晚餐 Chinatown</div></div><div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ 10/3 白天单人艇 · 出行前一日 12:00 前确认</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周日</span><span class="day-card__month">Oct</span><span class="day-card__day">4</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-r">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-04-bondi.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">10</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">Big Bus 蓝线</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">Bus ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">自然醒 · Chinatown / Darling Harbour 短走</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">Big Bus <b>蓝线</b> Bondi &amp; Bays（48h 票第 1 日 · Central #24 或 Phillip St）</span><span class="slot__line">hop-on-hop-off：Centennial Park · <b>Bondi Beach</b> · North Bondi · Double Bay · Paddington · QVB</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">不宜排满 · 早休息</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">小：✅ Big Bus 48h · 10/4 蓝线</div><div class="day-line">小：Caption → Central 步行 ~8 min 上蓝线</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body"><div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">无清晨项目 · Bondi 留 1.5–2h 下滩<div class="planb"><b>PlanB</b> 大雨 → QVB + 博物馆室内</div></div></div><div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">Chinatown 早午餐 · Bondi：<b>Hurricane's Grill</b> / Speedo's · 晚餐酒店周边简餐</div></div><div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ Big Bus · 首日激活 10/4</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周一</span><span class="day-card__month">Oct</span><span class="day-card__day">5</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-l">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-05-bigbus-red.jpeg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">11</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">观鲸 + Big Bus 红线</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">观鲸 ✅</span><span class="tag tag-booked">Bus ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">07:40 到 Circular Quay · <b>08:00</b> 观鲸（Campbell's Cove Pontoon · 2 成人）</span><span class="slot__line">返港 ~10:00</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">Big Bus <b>红线</b> City Tour（48h 票第 2 日 · Phillip St 上车）</span><span class="slot__line">hop-on-hop-off：歌剧院 · 皇家植物园 · The Rocks · 达令港 · 唐人街 · Barangaroo · 鱼市场</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">整理行李 · 早休息（次日国际航班）</span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">小：✅ 观鲸 Campbell's Cove · Caption → Circular Quay 火车 ~12 min · 07:10 出门</div><div class="day-line">小：✅ Big Bus 10/5 红线 · 返港后步行 Phillip St ~5 min</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body"><div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">观鲸无备选 · 返港后上红线最顺 · 红线挑 3–4 站即可<div class="planb"><b>PlanB</b> 观鲸取消 → 上午直接红线 · 大雨 → 美术馆/QVB 室内</div></div></div><div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">观鲸前环形码头 coffee + 干粮 · 午餐 Fish Market / 市区 · 晚餐酒店附近收工</div></div><div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ 观鲸 · 2 成人</div></div></div>
+              </section>
+            </div></article>
+
+          <article class="day-card">
+            <div class="day-card__date"><span class="day-card__week">周二</span><span class="day-card__month">Oct</span><span class="day-card__day">6</span></div>
+            <div class="day-card__aside"><aside class="day-visual">
+              <div class="day-polaroid day-polaroid--tilt-r">
+                <span class="day-polaroid__tape day-polaroid__tape--l" aria-hidden="true"></span>
+                <span class="day-polaroid__tape day-polaroid__tape--r" aria-hidden="true"></span>
+                <figure class="day-polaroid__frame">
+                  <img class="day-polaroid__img" src="images/day-06-departure.jpg" alt="" loading="lazy" />
+                  <figcaption class="day-polaroid__overlay">
+                    <div class="day-polaroid__badge"><span class="day-polaroid__badge-label">DAY</span><span class="day-polaroid__badge-num">12</span></div>
+                  </figcaption>
+                </figure>
+                <p class="day-polaroid__caption">返程上海</p>
+              </div>
+              </aside><div class="day-card__tags"><span class="tag tag-booked">机票 ✅</span></div></div><div class="day-main">
+              <section class="day-block day-block--schedule">
+                <div class="day-timeline day-timeline--primary">
+              <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">退房 · <b>08:00 前</b> 出发去机场</span><span class="slot__line">✅ HX018 悉尼 T1 <b>12:05</b> 起飞 · 经香港转机</span></div></div>
+              <div class="slot"><span class="slot__label">下午</span><div class="slot__text"><span class="slot__line">香港转机 · HX234 香港 <b>21:20</b> 起飞</span></div></div>
+              <div class="slot"><span class="slot__label">晚上</span><div class="slot__text"><span class="slot__line">HX234 抵浦东 T2 <b>23:50</b></span></div></div>
+                </div>
+              </section>
+              <section class="day-block day-block--transport">
+                <div class="day-block__label">交通</div>
+                <div class="day-block__body"><div class="day-line">大：✅ HX018 悉尼 12:05 → 香港 19:10（10h05m）</div><div class="day-line">大：✅ HX234 香港 21:20 → 浦东 23:50（2h30m）</div><div class="day-line">小：⬜ 酒店 → SYD T1 · 建议 <b>09:00 前</b> 抵达（国际航班提前 3h）· 火车 T8 / Uber</div></div>
+              </section>
+              <section class="day-block day-block--notes">
+                <div class="day-block__label">其他</div>
+                <div class="day-block__body"><div class="day-extra"><span class="day-extra__label">建议</span><div class="day-extra__body">前一晚收好行李 · 澳洲出境液体限制同国际惯例 · 香港转机 2h 衔接较紧，下机后直奔登机口</div></div><div class="day-extra"><span class="day-extra__label">餐饮</span><div class="day-extra__body">酒店 quick breakfast · T1 出发层食肆 · 香港转机 · 机上餐</div></div><div class="day-extra"><span class="day-extra__label">备注</span><div class="day-extra__body">✅ 机票 · 香港航空</div></div></div>
+              </section>
+            </div></article>
+
+        </div>
+      </section>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="conclusion">
+    <div class="conclusion__inner">
+      <p class="conclusion__kicker">Wrap-up</p>
+      <h2 class="conclusion__headline">慢在墨尔本，亮在悉尼。</h2>
+      <p class="conclusion__body">前半程在墨尔本慢慢沉下来 — 咖啡、巷弄、近郊的一日游。10/1 一过，节奏换成悉尼的亮：海港、沙滩、南向的火车。期待的是九月底的风还不冷，葡萄园刚绿，海面上也许还能碰见最后一波鲸。</p>
+      <p class="conclusion__body">从 laneway 的咖啡香到大洋路的十二门徒，从 Yarra Valley 的葡萄园到 Circular Quay 的日落，十二天是一条从内陆慢走滑向海港的线。</p>
+      <div class="conclusion__stats">
+        <span class="conclusion__stat">12 Days</span>
+        <span class="conclusion__stat">Melbourne 5N · Sydney 5N</span>
+        <span class="conclusion__stat">Spring · East Coast</span>
+        <span class="conclusion__stat">Whales · Wine · Harbour</span>
+      </div>
+      <p class="conclusion__signoff">Scarlett &amp; LiuJia · Shanghai ⇄ Australia · via HKG · 2026</p>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var track = document.getElementById("spot-carousel");
+      var prev = document.querySelector(".highlights__arrow--prev");
+      var next = document.querySelector(".highlights__arrow--next");
+      if (!track || !prev || !next) return;
+
+      function step() {
+        var card = track.querySelector(".spot-card");
+        return card ? card.offsetWidth + 18 : 200;
+      }
+
+      function updateArrows() {
+        var max = track.scrollWidth - track.clientWidth - 2;
+        prev.disabled = track.scrollLeft <= 2;
+        next.disabled = track.scrollLeft >= max;
+      }
+
+      prev.addEventListener("click", function () {
+        track.scrollBy({ left: -step(), behavior: "smooth" });
+      });
+      next.addEventListener("click", function () {
+        track.scrollBy({ left: step(), behavior: "smooth" });
+      });
+      track.addEventListener("scroll", updateArrows, { passive: true });
+      window.addEventListener("resize", updateArrows);
+      updateArrows();
+    })();
+  </script>
+</body>
+</html>
