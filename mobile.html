@@ -745,17 +745,6 @@
       transform-origin: center bottom;
     }
 
-    .day-card__tags {
-      flex-shrink: 0;
-      z-index: 3;
-      margin-left: 6px;
-      margin-top: 6px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      max-width: calc(188px - 12px);
-    }
-
     .day-polaroid__caption {
       position: absolute;
       left: 10px;
@@ -1011,14 +1000,7 @@
       .day-card__week { font-size: 9px; }
       .day-card__month { font-size: 10px; }
       .day-card__aside { grid-column: 1; grid-row: 1; max-width: 160px; margin: 0 auto; }
-      .day-main { grid-column: 1; grid-row: 2; }
-      .day-card__tags { margin-left: 4px; max-width: calc(100% - 8px); }
-      .day-visual {
-        max-width: 160px;
-        margin: 0 auto;
-        align-self: start;
-      }
-      .day-main { align-self: start; }
+      .day-main { grid-column: 1; grid-row: 2; }      .day-main { align-self: start; }
       .day-polaroid { max-width: 160px; }
       .day-polaroid--tilt-l,
       .day-polaroid--tilt-r { transform: rotate(-1deg); }
@@ -1028,42 +1010,6 @@
       .day-block__body,
       .slot__line,
       .day-extra__body { font-size: 14px; }
-    }
-
-    .version-switch {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      padding: 10px 16px;
-      padding-top: max(10px, env(safe-area-inset-top));
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e2e8f0;
-      font-size: 12px;
-    }
-
-    .version-switch__current,
-    .version-switch a {
-      padding: 8px 16px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      line-height: 1.2;
-    }
-
-    .version-switch__current {
-      background: #0f172a;
-      color: #fff;
-    }
-
-    .version-switch a {
-      color: #64748b;
-      border: 1px solid #e2e8f0;
-      background: #fff;
     }
 
     /* H5 手机端默认布局强化 */
@@ -1128,14 +1074,7 @@
     body.is-h5 .conclusion__headline { font-size: clamp(20px, 5.5vw, 26px); }
   </style>
 </head>
-<body class="is-h5">
-
-  <nav class="version-switch" aria-label="版本切换">
-    <a href="index.html">Web 端</a>
-    <span class="version-switch__current">手机端</span>
-  </nav>
-
-  <section class="cover-hero">
+<body class="is-h5"><section class="cover-hero">
     <img class="cover-hero__img" src="images/harbour-bridge.jpg" alt="Sydney Harbour" />
     <div class="cover-hero__shade" aria-hidden="true"></div>
     <div class="cover-hero__body">
@@ -1266,7 +1205,7 @@
                 </figure>
                 <p class="day-polaroid__caption">港迪打卡 · 晚班飞墨尔本</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">机票 ✅</span><span class="tag tag-booked">港迪年卡 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">抵港 T1 · 入境</span><span class="slot__line">港迪年卡入园打卡</span></div></div>
@@ -1300,7 +1239,7 @@
                 </figure>
                 <p class="day-polaroid__caption">抵达 · 墨大 · 倒时差</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">接机 ✅</span><span class="tag tag-booked">酒店 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">~10:30 抵 T2 · ✅ 接机 11:25</span><span class="slot__line">Brady 入住放行李</span></div></div>
@@ -1333,7 +1272,7 @@
                 </figure>
                 <p class="day-polaroid__caption">蒸汽火车 + 企鹅归巢</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">一日游跟团 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">奔驰小团上门接 Brady 酒店（具体时间以出行通知为准）</span><span class="slot__line">普芬比利 Puffing Billy 蒸汽火车 · Belgrave 站 → 经典 timber 段</span><span class="slot__line">可选 Maru 考拉动物园（<b>自费可选</b>，订单不含）</span></div></div>
@@ -1367,7 +1306,7 @@
                 </figure>
                 <p class="day-polaroid__caption">大洋路 · 十二门徒</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">一日游跟团 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">奔驰精品小团上门接 Brady 酒店 · 接客 <b>08:00–09:00</b>（以出行通知为准）</span><span class="slot__line">大洋路<b>反线</b>出发 · 纪念拱门 Memorial Arch</span></div></div>
@@ -1401,7 +1340,7 @@
                 </figure>
                 <p class="day-polaroid__caption">Citywalk + QVM</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-pending">自由活动</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Queen Victoria Market（周二开放）</span><span class="slot__line">生鲜 / 熟食 / 纪念品</span></div></div>
@@ -1434,7 +1373,7 @@
                 </figure>
                 <p class="day-polaroid__caption">Yarra Valley 酒庄</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">酒庄一日游 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">✅ 雅拉谷酒庄导览 · <b>09:30</b> 上车 <b>210 Lonsdale St</b>（Brady 步行 ~5min）</span><span class="slot__line">Steels Gate → Balgownie 品酒 · 含午餐（1 道菜 + 酒）</span></div></div>
@@ -1483,7 +1422,7 @@
                 </figure>
                 <p class="day-polaroid__caption">飞悉尼 · 夜游海港</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">JQ512 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Brady 退房 · <b>~09:15 前</b> 出发去 MEL T4</span></div></div>
@@ -1515,7 +1454,7 @@
                 </figure>
                 <p class="day-polaroid__caption">Kiama + Gerringong</p>
               </div>
-            </aside><div class="day-card__tags"><span class="tag tag-pending">火车自由行</span></div></div><div class="day-main">
+            </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Mercure 步行 ~3 min → <b>Central</b> 坐火车</span><span class="slot__line">South Coast Line → <b>Kiama</b>（~2h）· <b>Blowhole 喷水洞</b></span><span class="slot__line">小镇午餐</span></div></div>
@@ -1547,7 +1486,7 @@
                 </figure>
                 <p class="day-polaroid__caption">皮划艇 · Manly · 入住凯悦</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">凯悦 ✅</span><span class="tag tag-booked">皮划艇 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">Mercure 退房（<b>10:00 前</b>）· 行李寄存 / 送 Caption</span><span class="slot__line">✅ 悉尼港皮划艇 · 10/3 <b>白天场</b> · Kirribilli · 2h · 单人艇 ×2</span><span class="slot__line">集合时刻行前 SMS · 前一日 <b>12:00</b> 前确认订单</span></div></div>
@@ -1579,7 +1518,7 @@
                 </figure>
                 <p class="day-polaroid__caption">Big Bus 蓝线</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">Bus ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">自然醒 · Chinatown / Darling Harbour 短走</span></div></div>
@@ -1611,7 +1550,7 @@
                 </figure>
                 <p class="day-polaroid__caption">观鲸 + Big Bus 红线</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">观鲸 ✅</span><span class="tag tag-booked">Bus ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">07:40 到 Circular Quay · <b>08:00</b> 观鲸（Campbell's Cove Pontoon · 2 成人）</span><span class="slot__line">返港 ~10:00</span></div></div>
@@ -1643,7 +1582,7 @@
                 </figure>
                 <p class="day-polaroid__caption">返程上海</p>
               </div>
-              </aside><div class="day-card__tags"><span class="tag tag-booked">机票 ✅</span></div></div><div class="day-main">
+              </aside></div><div class="day-main">
               <section class="day-block day-block--schedule">
                 <div class="day-timeline day-timeline--primary">
               <div class="slot"><span class="slot__label">上午</span><div class="slot__text"><span class="slot__line">退房 · <b>08:00 前</b> 出发去机场</span><span class="slot__line">✅ HX018 悉尼 T1 <b>12:05</b> 起飞 · 经香港转机</span></div></div>
